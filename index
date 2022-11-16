@@ -1,0 +1,89 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+  <meta charset="utf-8">
+  <title>DATAVIZ</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/main.css">
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+</head>
+
+<body>
+    
+<script src="https://code.highcharts.com/maps/highmaps.js"></script>
+<script src="https://code.highcharts.com/maps/modules/data.js"></script>
+
+<div id="container" style="height: 600px; min-width: 50%; max-width: 80px; margin: 10px auto 0 auto;"></div>
+   
+<script type="text/javascript">	
+$(function () {
+	var processed_json = new Array();
+	
+	$.getJSON('json/liste.json', function(data) {
+        for (i = 0; i < data.length; i++){
+            processed_json.push([data[i].city,data[i].formation,data[i].label]);
+        }
+		 
+		$.getJSON('json/departements.geojson', function (geojson) {
+		
+			Highcharts.mapChart('container', {
+				title: {
+					text: ''
+				},
+				chart: {    
+					map: geojson,
+					plotBackgroundColor: '#FFFFFF'
+				},
+				mapNavigation: {
+					enabled: true,
+					buttonOptions: {
+						verticalAlign: 'bottom'
+					},
+					enableDoubleClickZoomTo: true
+				},
+		
+				series: [{
+					showInLegend: false,             
+					animation: true,
+					data: processed_json,
+					keys: ['nom', 'nombre'],
+					joinBy: 'nom',
+					name: 'Lieux',
+					borderColor: '#000000',
+					nullColor: '#EFEFEF',
+					states: {
+						hover: {
+							color: '#AAAAAA'
+						},
+					},
+					 tooltip: {
+						pointFormat: '{point.nom}: {point.nombre} formation',
+					},
+					dataLabels: {
+						enabled: true,
+						format: '{point.nom}'
+					},
+					point:{
+                	events:{
+                    click: function(){
+                        alert(this.nom);
+						return(this.nom);
+                    	}
+              		  }
+					},
+				}]
+			});
+		});
+	});
+});
+
+   
+</script>
+  
+  <script src="js/vendor/modernizr-3.7.1.min.js"></script>
+  <script>window.jQuery || document.write('<script src="js/vendor/jquery-3.3.1.min.js"><\/script>')</script>
+  <script src="js/main.js"></script>
+</html>
