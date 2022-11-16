@@ -1,12 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="src/css/general.css">
     <title>Document</title>
-</head>
-<body>
-    
-</body>
+  </head>
+  <body>
+    <div>
+        <button id="darkMode" onClick="darkMode()">Dark/Light Mode</button>
+      <input
+        id="searchbar"
+        onkeyup="search()"
+        type="text"
+        name="search"
+      />
+      
+    </div>
+    <ul id="list-holder"></ul>
+    <ul id="data"></ul>
+
+    <footer>
+      <p>Equipe 42</p>
+      <p>&#169 2022</p>
+    </footer>
+  </body>
 </html>
+<script src="src\js\import.js"></script>
+
