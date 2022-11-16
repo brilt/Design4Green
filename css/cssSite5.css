@@ -1,0 +1,55 @@
+body {
+	font-family: 'Raleway', sans-serif;
+	font-weight: 400;
+	color:rgb(186, 91, 91);
+	margin: 0px;
+	overflow-x: hidden;
+	padding: 0px;
+}
+
+h5{
+    font-size: 20px;
+}
+
+ 
+.box {
+	display: flex;
+	flex-flow: row wrap;
+	/*flex: 1 0 0;*/
+	width:70%;
+	gap: 30px;
+	justify-content: space-between;
+	margin-bottom: 50px;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
+.bouton{
+  background-color: #cccccc;
+  border-radius: 10px;
+  border: 1px solid #f10000;
+  color: #000000;
+  text-align: center;
+  font-size: 12px;
+  width: 90px;
+  height: 20px;
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  -o-transition: all 0.5s;
+  transition: all 0.5s;
+  cursor: pointer;
+}
+
+.texte {
+font-family: inherit;
+width: 200px;
+border: 0;
+border-bottom: 3px solid #606060;
+outline: 0;
+font-size: 1.3rem;
+padding: 7px 0;
+color: black;
+background: transparent;
+position: left;
+}
