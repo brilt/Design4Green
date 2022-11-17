@@ -12,28 +12,49 @@
       <button id="darkMode" onClick="darkMode()">Dark/Light Mode</button>
       <input
         id="searchbar"
-        
         type="text"
         name="search"
         placeholder="Rechercher..."
       />
-      <label class="form-control">
-        <input  type="checkbox" value="3" name="duree de la formation" >
-        label 3
-      </label>
-      <label class="form-control">
-        <input  type="checkbox" value="1" name="duree de la formation" >
-        label 1
-      </label>
+      <div class="filtres">
+        <h1 id="itema">Filtres</h1>
+        <h2 id="itemb">Durée de formation</h2>
+        <h2>Modalités d'accès</h2>
+        <h2>Type de structure</h2>
+        <label class="form-control">
+          <input  type="checkbox" value="1" name="duree de la formation" >
+          1j
+        </label>
+        <p>num</p>
+        <p>truc</p>
+        <p>truc</p>
+        <label class="form-control">
+          <input  type="checkbox" value="3" name="duree de la formation" >
+          3j
+        </label>
+      </div>
       <button id="sub_filtre" type="submit" onclick="searchAll()">Rechercher</button>
     </div>
-    <ul id="list-holder"></ul>
-    <ul id="data"></ul>
+    
+    <div class="row">
+      <div class = "map">
+        <img src="/img/france.jpg">
+      </div>
 
-    <footer>
-      <p>Equipe 42</p>
-      <p>&#169 2022</p>
+      <div class="liste">
+        <ul id="list-holder"></ul>
+        <ul id="data"></ul>
+      </div>
+    </div>
+    <div id ="panier">
+      Panier (insérer panier ici)
+    </div>
+
+    <footer id="row">
+      <p class="column">Design4Green 2022</p>
+      <p class="column">Equipe 42</p>
+      <p class="column">&#169 2022</p>
     </footer>
   </body>
 </html>
-<script src="src\js\import.js"></script>
+<script src="src\js\import_2.js"></script>

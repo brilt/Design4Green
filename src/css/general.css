@@ -15,7 +15,7 @@ body {
     border-width: 0.2em;
     border-radius:1.5em;
     height: 2.3em;
-    width: 50vw;
+    width: 35vw;
     min-width: 20em;
     margin: 0.5em 1em;
     padding: 0em 0.7em;
@@ -29,18 +29,44 @@ body {
 
 /*-------------------- FILTRES --------------------*/
 
+.filtres {
+    background-color: rgb(250, 238, 249);
+    border-radius: 0.2em;
+    padding: 0.8em 1em;
+    display: inline-grid;
+    grid-template-columns: auto auto auto auto;
+    column-gap: 1em;
+}
+
+#itema {
+    margin: 0em;
+    font: inherit;
+    font-weight: bold;
+    grid-column-start: 1;
+    grid-column-end: 4; /*Prend tout la première ligne*/
+}
+#itemb {
+    grid-column-start: 1;
+    grid-column-end: 3; /*Prend 2 colonnes*/
+}
+h2 {
+    margin: 0em 0em 0.5em;
+    font: inherit;
+}
+
+
 /*-- Checkbox --*/
 .form-control {
-    display: grid;
-    grid-template-columns: 1em auto;
-    gap: 0.5em;
+    display: inline-grid;
+    grid-template-columns: auto auto;
+    gap: 0.1em;
 }
 input[type="checkbox"] {
     /* Cacher checkbox originale*/
     -webkit-appearance: none;
     appearance: none;  
     background-color: rgb(255, 255, 255);/* For iOS < 15 to remove gradient background */
-    margin: 0;
+    margin: 0em;
     /*custom checkbox non sélectionnées */
     width: 1em;
     height: 1em;
@@ -53,9 +79,7 @@ input[type="checkbox"] {
 input[type="checkbox"]:hover {
     background-color: rgb(225, 153, 208);
 }
-.form-control + .form-control {
-  margin-top: 0.5em; /*espace entre les box*/
-}
+
 /*custom checkbox sélectionnée*/
 input[type="checkbox"]::before {
     content: "";
@@ -77,24 +101,52 @@ input[type="checkbox"]:checked::before {
 	border-radius: 0.2em;
 	background-color: rgb(180, 55, 151);
     padding: 0.1em 0.3em;
-    margin: 0.3em;
+    margin: 0.5em 0.3em;
     color: rgb(255, 255, 255);
 }
 #sub_filtre:hover {
-	border-color: rgb(241, 112, 0);
-	background-color: rgb(254, 249, 241);
-    color: rgb(241, 112, 0);
+	border-color: rgb(129, 33, 107);
+	background-color: rgb(129, 33, 107);
 }
+/*-------------------Map+list---------------------*/
+
+.row {  
+    display: flex;
+    flex-wrap: wrap;
+    color: black;
+  
+  }
+  
+  map {
+    flex: 80%;
+    padding: 1%;
+
+  }
+
+  .liste {
+    flex: 20%;
+    padding: 1%;
+  }
 
 /*-------------------- PANIER --------------------*/
-
-
-/*-------------------- FOOTER --------------------*/
-footer p{
-    display: inline;
-    
+#panier{
+    background-color: #aaa;
+    width: 100%;
+    padding: 20px;
 }
 
+/*-------------------- FOOTER --------------------*/
+.column{
+    float: left;
+    width: 33.33%;
+    text-align: center;
+
+}
+#row:after {
+    content: "";
+    display: table;
+    clear: both; 
+}
 /*-------------------- DARK MODE --------------------*//*-------------------- DARK MODE --------------------*//*-------------------- DARK MODE --------------------*/
 .dark-mode {
     background-color: rgb(46, 46, 46);
@@ -141,6 +193,10 @@ footer p{
 }
 
 /*-- Filtres --*/
+.dark-mode .filtres {
+    background-color: rgb(73, 58, 38);
+}
+
 .dark-mode [type="checkbox"] {
     background-color: rgb(46, 46, 46);
     border-color: white;
@@ -150,4 +206,14 @@ footer p{
 }
 .dark-mode [type="checkbox"]::before {
     background-color: rgb(255, 119, 0);
+}
+
+.dark-mode #sub_filtre {
+	border-color: rgb(255, 119, 0);
+	background-color: rgb(255, 119, 0);
+    color: rgb(46, 46, 46);
+}
+.dark-mode #sub_filtre:hover {
+	border-color: rgb(255, 165, 86);
+	background-color: rgb(255, 165, 86);
 }
