@@ -1,20 +1,22 @@
-<!doctype html>
-<html class="no-js" lang="">
+<!doctype html><html manifest="demo.appcache">
+<html lang="fr">
 
 <head>
+  <link rel="stylesheet" type="text/css" href="/css/print.css" media="print">
   <meta charset="utf-8">
-  <title>DATAVIZ</title>
-  <meta name="description" content="">
+  <title>Map</title>
+  <meta name="description" content="Site for Design4Green 2022 Challenge">
+  <meta name="keywords" content="HTML, CSS, JavaScript">
+  <meta name="author" content="team 42">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="css/normalize.css">
-  <link rel="stylesheet" href="css/main.css">
-<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 </head>
 
 <body>
-    
-<script src="https://code.highcharts.com/maps/highmaps.js"></script>
-<script src="https://code.highcharts.com/maps/modules/data.js"></script>
+
+<script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>    
+<script src="js/highmaps.js"></script>
+
+
 
 <div id="container" style="height: 600px; min-width: 50%; max-width: 80px; margin: 10px auto 0 auto;"></div>
    
@@ -24,17 +26,20 @@ $(function () {
 	
 	$.getJSON('json/liste.json', function(data) {
         for (i = 0; i < data.length; i++){
-            processed_json.push([data[i].city,data[i].formation,data[i].label]);
+            processed_json.push([data[i].city,data[i].formation]);
         }
 		 
-		$.getJSON('json/departements.geojson', function (geojson) {
+		$.getJSON('json/departement.geojson', function (geojson) {
 		
 			Highcharts.mapChart('container', {
 				title: {
-					text: ''
+					text: '',
+				},
+				style: {
+					fontSize: '14px',
 				},
 				chart: {    
-					map: geojson,
+					map: geojson,					
 					plotBackgroundColor: '#FFFFFF'
 				},
 				mapNavigation: {
@@ -47,7 +52,7 @@ $(function () {
 		
 				series: [{
 					showInLegend: false,             
-					animation: true,
+					animation: false,
 					data: processed_json,
 					keys: ['nom', 'nombre'],
 					joinBy: 'nom',
@@ -83,7 +88,4 @@ $(function () {
    
 </script>
   
-  <script src="js/vendor/modernizr-3.7.1.min.js"></script>
-  <script>window.jQuery || document.write('<script src="js/vendor/jquery-3.3.1.min.js"><\/script>')</script>
-  <script src="js/main.js"></script>
 </html>
