@@ -37,6 +37,9 @@ body {
     grid-template-columns: auto auto auto auto;
     column-gap: 1.5em;
 }
+.filtres:hover {
+    background-color: rgb(231, 201, 228);
+}
 
 #itema {
     margin: 0em;
@@ -52,17 +55,15 @@ h2 {
     font: inherit;
 }
 
-
 /*-- Checkbox --*/
 .form-control {
     display: none;
     /*display: inline-grid;*/
     grid-template-columns: auto auto;
     gap: 0.1em;
-
 }
 
-.show{
+.show{  /*Afficher les filtres*/
     display: inline-grid;
 }
 
@@ -145,13 +146,12 @@ h1 {
 }
 
 /*-------------------- FOOTER --------------------*/
-.column{
+footer p{
     float: left;
     width: 33.33%;
     text-align: center;
-
 }
-#row:after {
+footer:after {
     content: "";
     display: table;
     clear: both; 

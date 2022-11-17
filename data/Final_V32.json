@@ -578,7 +578,7 @@
   "Type d'organisme": "Enseignement supérieur",
   "localisation": "Anglet",
   "duree de la formation": 1,
-  "modalites acces": "Présentiel"
+  "modalites acces": "présentiel"
  },
  {
   "formation": "Formation initiale",
@@ -588,7 +588,7 @@
   "Type d'organisme": "Enseignement supérieur",
   "localisation": "Anglet",
   "duree de la formation": 2,
-  "modalites acces": "Présentiel"
+  "modalites acces": "présentiel"
  },
  {
   "formation": "Formation initiale",
@@ -601,7 +601,7 @@
   "localisation": "Anglet",
   " validation des acquis": "Crédits ECTS 2.0",
   "duree de la formation": 2,
-  "modalites acces": "Présentiel",
+  "modalites acces": "présentiel",
   "URL": "https:\/\/formation.univ-pau.fr\/fr\/catalogue\/sciences-technologies-sante-STS\/master-14\/master-informatique-79_1\/m1-m2-parcours-systemes-informatiques-pour-le-genie-de-la-logistique-industrielle-et-des-services-siglis-126_1\/amelioration-continue-K1C9B5WX\/green-it-K1C9DJJS.html"
  },
  {
@@ -681,7 +681,7 @@
   "nom": "IMT - Telecom Sud Paris",
   "intitulé": "Numérique et consommation énergétique : agir du processeur au logiciel",
   "localisation": "Évry",
-  "modalites acces": "Présentiel",
+  "modalites acces": "présentiel",
   "URL": "https:\/\/www-inf.telecom-sudparis.eu\/COURS\/CSC4535\/numenv\/?page=numenv"
  },
  {
@@ -705,7 +705,7 @@
   "Type d'organisme": "Enseignement supérieur",
   "nom": "IMT Mines Albi",
   "localisation": "Albi",
-  "modalites acces": "Présentiel"
+  "modalites acces": "présentiel"
  },
  {
   "formation": "Formation initiale",
@@ -715,7 +715,7 @@
   "Type d'organisme": "Enseignement supérieur",
   "nom": "Université Toulouse 1 Capitole",
   "localisation": "Toulouse",
-  "modalites acces": "Présentiel",
+  "modalites acces": "présentiel",
   "URL": "https:\/\/miage.ut-capitole.fr\/master-2is-innovative-information-systems--611942.kjsp"
  },
  {
@@ -726,7 +726,7 @@
   "Type d'organisme": "Enseignement supérieur",
   "nom": "Université Paul Valéry, Montpellier",
   "localisation": "Montpellier",
-  "modalites acces": "Présentiel",
+  "modalites acces": "présentiel",
   "URL": "https:\/\/ufr6.www.univ-montp3.fr\/fr\/formation\/masters\/master_miashs"
  },
  {
@@ -737,7 +737,7 @@
   "Type d'organisme": "Enseignement supérieur",
   "nom": "IMT Mines Alès",
   "localisation": "Ales",
-  "modalites acces": "Présentiel",
+  "modalites acces": "présentiel",
   "URL": "https:\/\/www.imt-mines-ales.fr\/formations\/domaines-dexcellence\/informatique-et-intelligence-artificielle"
  },
  {
@@ -748,7 +748,7 @@
   "Type d'organisme": "Enseignement supérieur",
   "nom": "Mines Saint-Etienne",
   "localisation": "Saint-Étienne",
-  "modalites acces": "Présentiel"
+  "modalites acces": "présentiel"
  },
  {
   "formation": "Formation initiale",
@@ -773,7 +773,7 @@
   "intitulé": " Face cachée du numérique : impacts environnementaux, sociaux et sociétaux de l'essor des nouvelles technologies",
   "localisation": "Nantes",
   "duree de la formation": 8,
-  "modalites acces": "Présentiel",
+  "modalites acces": "présentiel",
   "URL": "https:\/\/moodle.imt-atlantique.fr\/course\/view.php?id=1429"
  },
  {
@@ -798,7 +798,7 @@
   "localisation": "Paris",
   " validation des acquis": "Certificat de connaissance GreenIT",
   "duree de la formation": 3,
-  "modalites acces": "Présentiel",
+  "modalites acces": "présentiel",
   "URL": "https:\/\/www.octo.academy\/formations\/formation\/151\/ecoconception-responsable-de-service-numerique\/1465\/"
  },
  {
@@ -810,7 +810,7 @@
   "intitulé": "GreenIT : A practical study from IoT to the Cloud",
   "localisation": "Nantes",
   "duree de la formation": 5,
-  "modalites acces": "Présentiel",
+  "modalites acces": "présentiel",
   "URL": "http:\/\/greenit.menaud.fr\/"
  },
  {
@@ -954,7 +954,7 @@
   "localisation": "Saint-Malo",
   " validation des acquis": "\nLe Titre Professionnel de responsable d'espace de médiation numérique\nNiveau 5 (bac+2)",
   "duree de la formation": 58,
-  "modalites acces": "Présentiel",
+  "modalites acces": "présentiel",
   "URL": "http:\/\/www.emeraude-competences-mfr.fr\/formations-5-54-titre-professionnel-responsable-d--039-espace-de-mediation-numerique.html"
  },
  {
@@ -968,7 +968,7 @@
   "localisation": "Lyon",
   " validation des acquis": "Certification RNCP31678 pour l'ensemble de la formation",
   "duree de la formation": 1,
-  "modalites acces": "Présentiel",
+  "modalites acces": "présentiel",
   "URL": "https:\/\/www.it-akademy.fr\/formation\/parcours\/2\/developpeur-fullstack-dfs"
  },
  {
@@ -989,7 +989,7 @@
   "intitulé": "Numérique responsable",
   "localisation": "Rennes",
   "duree de la formation": 5,
-  "modalites acces": "présentiel et distanciel",
+  "modalites acces": "Présentiel et distanciel",
   "URL": "https:\/\/www.competens.net\/product\/fc\/558"
  },
  {
@@ -1001,7 +1001,7 @@
   "localisation": "Nantes",
   " validation des acquis": "non",
   "duree de la formation": 0.5,
-  "modalites acces": "présentiel et distanciel"
+  "modalites acces": "Présentiel et distanciel"
  },
  {
   "formation": "Formation Continue",
@@ -1024,7 +1024,7 @@
   "intitulé": "Eco-conception de site web",
   "localisation": "Nantes",
   "duree de la formation": 10.5,
-  "modalites acces": "présentiel et distanciel",
+  "modalites acces": "Présentiel et distanciel",
   "URL": "https:\/\/corymbe.coop\/formation\/eco-conception-de-site-web\/"
  },
  {
@@ -1036,7 +1036,7 @@
   "localisation": "Morlaix",
   " validation des acquis": "Non",
   "duree de la formation": 0.5,
-  "modalites acces": "présentiel et distanciel",
+  "modalites acces": "Présentiel et distanciel",
   "URL": "www.tisserands.bzh et https:\/\/www.linkedin.com\/feed\/update\/urn:li:activity:6907681791600152576"
  },
  {
@@ -1049,7 +1049,7 @@
   "localisation": "Nantes",
   " validation des acquis": "Contrôle continu pendant la formation \/ Exercices de mise en pratique",
   "duree de la formation": 2,
-  "modalites acces": "Présentiel",
+  "modalites acces": "présentiel",
   "URL": "https:\/\/info.pingbase.net\/offre-de-formation\/#1638529798812-a741f1a7-1e06"
  },
  {
@@ -1061,7 +1061,7 @@
   "intitulé": "Intégrer le Numérique Responsable  dans votre stratégie de tourisme durable & RSE",
   " validation des acquis": "Un QCM de connaissances avec une attestation de formation",
   "duree de la formation": 1,
-  "modalites acces": "présentiel et distanciel",
+  "modalites acces": "Présentiel et distanciel",
   "URL": "https:\/\/www.canva.com\/design\/DAE7aYGUMJY\/fe-TdVeh6GZjXKSowQ9ybg\/view?utm_content=DAE7aYGUMJY&utm_campaign=designshare&utm_medium"
  },
  {
@@ -1074,7 +1074,7 @@
   "localisation": "Nantes",
   " validation des acquis": "À l’issue de la formation, vous pourrez :\n- Acquérir les bases théoriques de la conception numérique responsable.\n- Connaître les leviers les plus impactants pour des interfaces plus respectueuses de l’environnement\n- Acquérir les bases théoriques des règles d’accessibilité web",
   "duree de la formation": 1,
-  "modalites acces": "présentiel et distanciel",
+  "modalites acces": "Présentiel et distanciel",
   "URL": "https:\/\/www.notion.so\/jujotte\/Design-num-rique-responsable-91eb43034a0d4291b3be2c85ba496bfa"
  },
  {
