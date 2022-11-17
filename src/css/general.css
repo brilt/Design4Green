@@ -55,11 +55,17 @@ h2 {
 
 /*-- Checkbox --*/
 .form-control {
-    display: inline-grid;
+    display: none;
+    /*display: inline-grid;*/
     grid-template-columns: auto auto;
     gap: 0.1em;
 
 }
+
+.show{
+    display: inline-grid;
+}
+
 input[type="checkbox"] {
     /* Cacher checkbox originale*/
     -webkit-appearance: none;

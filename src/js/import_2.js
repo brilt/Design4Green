@@ -280,25 +280,16 @@ function searchAll() {
               [j].innerHTML.toLowerCase()
               .includes(inputSearch)
           ) {
-            console.log(
-              searchOneFilter(buttonsChecked[k].name, buttonsChecked[k].value)[
-                j
-              ]
-            );
             filteredElements["searchBar"].push(
               searchOneFilter(buttonsChecked[k].name, buttonsChecked[k].value)[
                 j
               ]
             );
-            console.log(filteredElements["searchBar"]);
           }
         }
       } else {
-        console.log(filteredElements[buttonsChecked[k].name][0]);
         for (list in filteredElements[buttonsChecked[k].name][0]) {
-          console.log(
-            x.appendChild(filteredElements[buttonsChecked[k].name][0][list])
-          );
+          
           x.appendChild(filteredElements[buttonsChecked[k].name][0][list]);
         }
       }
@@ -338,4 +329,12 @@ function searchAll() {
 function darkMode() {
   var element = document.body;
   element.classList.toggle("dark-mode");
+}
+
+function show() {
+  let list2show = document.getElementsByClassName("form-control");
+  for (cell = 0; cell < list2show.length;cell++) {
+    console.log(list2show);
+    list2show[cell].classList.toggle("show");
+  }
 }
