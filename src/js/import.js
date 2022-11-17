@@ -1,8 +1,9 @@
 json = new Array();
 basket = new Array();
 filters = new Array();
+searchedElements = new Array();
 filteredElements = new Array();
-
+filteredOneList = new Array();
 filteredjson = new Array(); //quand filtres selectionnées, on stock les formations correspondante ici. Utile pour la searchbar
 fetch("data/Final_V32.json")
   .then((res) => {
@@ -47,6 +48,34 @@ function addPanier(ev) {
     delete basket[ev.target.id];
   }
   document.getElementById(ev.target.id).classList.toggle("BASKET");
+}
+
+function oneElementToString(formation) {
+  var loc = "";
+  var nom = "";
+  var intit = "";
+  var duree = "";
+  var type = "";
+  var modal = "";
+  if (formation.hasOwnProperty("intitulé")) {
+    intit = formation["intitulé"] + "- ";
+  }
+  if (formation.hasOwnProperty("localisation")) {
+    loc = formation["localisation"] + "- ";
+  }
+  if (formation.hasOwnProperty("Type d'organisme")) {
+    type = formation["Type d'organisme"] + "- ";
+  }
+  if (formation.hasOwnProperty("modalites acces")) {
+    modal = formation["modalites acces"] + "- ";
+  }
+  if (formation.hasOwnProperty("nom")) {
+    loc = formation["nom"] + "- ";
+  }
+  if (formation.hasOwnProperty("duree de la formation")) {
+    duree = formation["duree de la formation"];
+  }
+  return (["-"] + intit + nom + type + loc + modal + duree);
 }
 
 function filterformation(filter) {
@@ -107,13 +136,15 @@ function displayAll() {
   });
 }
 
+
+/*
 function search(catFiltre, valeurFiltre) {
   let input = document.getElementById("searchbar").value;
   input = input.toLowerCase();
   let x = document.querySelector("#data");
   x.innerHTML = "";
   let found = false;
-  filteredElements = [];
+  searchedElements = [];
   results = new Array();
   for (i = 0; i < json.length; i++) {
     let obj = json[i];
@@ -151,7 +182,7 @@ function search(catFiltre, valeurFiltre) {
             duree = obj["duree de la formation"];
           }
           elem.innerHTML = ["-"] + intit + nom + type + loc + modal + duree;
-          filteredElements.push(elem);
+          searchedElements.push(elem);
           //x.appendChild(elem);
           found = true;
           break;
@@ -160,26 +191,25 @@ function search(catFiltre, valeurFiltre) {
     }
   }
 
-  if (typeof catFiltre !== "undefined") {
+  //filteredElements = searchedElements;
     //x.innerHTML = "";
     found = false;
-    for (el in filteredElements) {
+    for (el in searchedElements) {
         for (filter in filters) {
-            console.log(filters);
-        for (values in filter) {//remplacer par boucle i
-          console.log("el: "+el+ ", filter: "+filter+", value: "+values+" "+ filters[filter][values]+", "+filteredElements[el]);
+          for (i = 0; i < filters[filter].length;i++) {//remplacer par boucle i
+          //console.log(values);
+          console.log("el: "+el+ ", filter: "+filter+", value: "+i+" "+ filters[filter][i]+", "+filters[filter].length);
           if (
-            !filteredElements[el].classList.contains(filters[filter][values])
+            searchedElements[el].classList.contains(filters[filter][i])
           ) {
-            delete filteredElements[el];
-          } else {
+            filteredElements.push(searchedElements[el]);
             found = true;
-          }
+          } 
         }
       }
     }
-  }
-  filteredElements.forEach((result) => {
+  
+  searchedElements.forEach((result) => {
     x.appendChild(result);
   });
 
@@ -187,6 +217,47 @@ function search(catFiltre, valeurFiltre) {
     x.appendChild(
       document.createTextNode("Aucun élement ne correspond à votre recherche")
     );
+  }
+}*/
+
+
+function searchOneFilter(cat, value) {
+  filteredOneList = [];
+  for (i = 0; i < json.length; i++) {
+    let obj = json[i];
+    if (typeof obj[cat]!=='undefined' && obj[cat]==value) {
+      filteredOneList.push(oneElementToString(obj));
+
+    }
+  }
+  return (filteredOneList);
+}
+
+
+function searchAll() {
+  let inputSearch = document.getElementById("searchbar").value;
+  let x = document.querySelector("#data");
+  x.innerHTML = "";
+  let buttonsChecked = document.querySelectorAll(
+    "input:checked"
+  );
+  for (k = 0; k < buttonsChecked.length; k++){
+    filteredElements[buttonsChecked[k].name] = [];
+    console.log(filteredElements[buttonsChecked[k].name]);
+    //filteredElements[buttonsChecked[i].name]//arraylist with the categorie as key, each key will have a list of results with the filter
+    filteredElements[buttonsChecked[k].name].push(searchOneFilter(buttonsChecked[k].name, buttonsChecked[k].value));
+    //console.log(filteredElements);
+    result = filteredElements.flat(1);
+    //console.log(searchOneFilter(buttonsChecked[k].name, buttonsChecked[k].value));
+    
+  }
+  for (catFilt in filteredElements) {
+    for (p = 0; p < filteredElements[catFilt].length;p++/*elemFiltered in catFilt*/) {
+      elem = document.createElement("li");
+      elem.appendChild(document.createTextNode(filteredElements[catFilt][p]));
+      x.appendChild(elem);
+    }
+    //console.log(filteredElements[catFilt]);
   }
 }
 

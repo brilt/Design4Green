@@ -29,42 +29,43 @@ body {
 
 /*-------------------- FILTRES --------------------*/
 .form-control {
-    font-family: system-ui, sans-serif;
-  font-size: 2rem;
-  font-weight: bold;
-  line-height: 1.1;
-  display: grid;
-  grid-template-columns: 1em auto;
-  gap: 0.5em;
+    display: grid;
+    grid-template-columns: 1em auto;
+    gap: 0.5em;
 }
 input[type="checkbox"] {
     /* Cacher checkbox originale*/
     -webkit-appearance: none;
     appearance: none;  
-    background-color: #fff;/* For iOS < 15 to remove gradient background */
+    background-color: rgb(255, 255, 255);/* For iOS < 15 to remove gradient background */
     margin: 0;
     /*custom checkbox non sélectionnées */
-    font: inherit;
-    color: currentColor;
-    width: 1.15em;
-    height: 1.15em;
-    border: 0.15em solid currentColor;
+    width: 1em;
+    height: 1em;
+    border: 0.14em solid ;
     border-radius: 0.15em;
-    transform: translateY(-0.075em); /*Aligner la boite et le texte un peu mieux*/
+    transform: translateY(0.15em);/*Alligner la boite et le label*/
     display: grid;
     place-content: center;
 }
+input[type="checkbox"]:hover {
+    background-color: rgb(225, 153, 208);
+}
 .form-control + .form-control {
-  margin-top: 1em; /*espace entre les box*/
+  margin-top: 0.5em; /*espace entre les box*/
 }
 /*custom checkbox sélectionnée*/
 input[type="checkbox"]::before {
     content: "";
-    width: 0.65em;
-    height: 0.65em;
+    width: 1em;  /*taille du symbole check*/
+    height: 1em;
     transform: scale(0); /*0 = caché*/
-    transition: 120ms transform ease-in-out;
     box-shadow: inset 1em 1em var(--form-control-color);
+    border-radius: 0.13em;
+    background-color: rgb(180, 55, 151);
+}
+input[type="checkbox"]:checked::before {
+    transform: scale(1);
 }
 
 
@@ -123,3 +124,12 @@ footer p{
 }
 
 /*-- Filtres --*/
+.dark-mode [type="checkbox"] {
+    background-color: rgb(46, 46, 46);
+}
+.dark-mode [type="checkbox"]:hover {
+    background-color: rgb(188, 89, 2);
+}
+.dark-mode [type="checkbox"]::before {
+    background-color: rgb(255, 119, 0);
+}

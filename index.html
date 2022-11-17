@@ -12,19 +12,20 @@
       <button id="darkMode" onClick="darkMode()">Dark/Light Mode</button>
       <input
         id="searchbar"
-        onkeyup="search()"
+        
         type="text"
         name="search"
         placeholder="Rechercher..."
       />
       <label class="form-control">
-        <input  type="checkbox" value="3" name="boxDuree" onchange="addFilters()">
+        <input  type="checkbox" value="3" name="duree de la formation" >
         label 3
       </label>
       <label class="form-control">
-        <input  type="checkbox" value="1" name="boxDuree" onchange="addFilters()">
+        <input  type="checkbox" value="1" name="duree de la formation" >
         label 1
       </label>
+      <button type="submit" onclick="searchAll()">sumbit</button>
     </div>
     <ul id="list-holder"></ul>
     <ul id="data"></ul>
