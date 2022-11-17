@@ -196,8 +196,6 @@ function search(catFiltre, valeurFiltre) {
     for (el in searchedElements) {
         for (filter in filters) {
           for (i = 0; i < filters[filter].length;i++) {//remplacer par boucle i
-          //console.log(values);
-          console.log("el: "+el+ ", filter: "+filter+", value: "+i+" "+ filters[filter][i]+", "+filters[filter].length);
           if (
             searchedElements[el].classList.contains(filters[filter][i])
           ) {
@@ -221,16 +219,13 @@ function search(catFiltre, valeurFiltre) {
 
 function searchOneFilter(cat, value) {
   filteredOneList = [];
-  console.log(filteredOneList);
+  //elem = document.createElement("li");
   for (i = 0; i < json.length; i++) {
     let obj = json[i];
     if (cat != "all") {
       if (typeof obj[cat] !== "undefined" && obj[cat] == value) {
         elem = document.createElement("li");
-        //console.log(elem);
-        //console.log(categorie);
         elem.appendChild(document.createTextNode(oneElementToString(obj)));
-
         filteredOneList.push(elem); //filteredOneList is array of li
       }
     } else {
@@ -242,12 +237,9 @@ function searchOneFilter(cat, value) {
         ) {
           if (obj[categorie].toLowerCase().includes(value)) {
             elem = document.createElement("li");
-            //console.log(elem);
-            //console.log(categorie);
             elem.appendChild(document.createTextNode(oneElementToString(obj)));
 
             filteredOneList.push(elem); //filteredOneList is array of li
-            //console.log(elem);
           }
         }
       }
@@ -259,40 +251,90 @@ function searchOneFilter(cat, value) {
 
 function searchAll() {
   let inputSearch = document.getElementById("searchbar").value;
+  inputSearch = inputSearch.toLowerCase();
   let x = document.querySelector("#data");
-  let buttonsChecked = document.querySelectorAll(
-    "input:checked"
-  );
-  if (buttonsChecked.length == '0') {
-    x.innerHTML = "";
-   displayAll();
-}
-else{
+  let buttonsChecked = document.querySelectorAll("input:checked");
   x.innerHTML = "";
-  filteredElements["duree de la formation"] = [];
-  for (k = 0; k < buttonsChecked.length; k++){
-    console.log(buttonsChecked[k].name);
-    //filteredElements[buttonsChecked[i].name]//arraylist with the categorie as key, each key will have a list of results with the filter
-    filteredElements[buttonsChecked[k].name].push(searchOneFilter(buttonsChecked[k].name, buttonsChecked[k].value));
-    //console.log(filteredElements);
-    result = filteredElements.flat(1);
-    //console.log(searchOneFilter(buttonsChecked[k].name, buttonsChecked[k].value));
-    
-  }
-  for (catFilt in filteredElements) {
-    for (p = 0; p < filteredElements[catFilt].length;p++/*elemFiltered in catFilt*/) {
-      for (elementFilt in filteredElements[catFilt][p]) {
-        console.log(filteredElements[catFilt][p][elementFilt]);
-      x.appendChild(filteredElements[catFilt][p][elementFilt]);
+  if (buttonsChecked.length == "0" && inputSearch == "") {
+    displayAll();
+  } else if (buttonsChecked.length != "0") {
+    filteredElements["duree de la formation"] = [];
+    filteredElements["modalites acces"] = [];
+    filteredElements["structure"] = [];
+    filteredElements["searchBar"] = [];
+
+    for (k = 0; k < buttonsChecked.length; k++) {
+      filteredElements[buttonsChecked[k].name].push(
+        searchOneFilter(buttonsChecked[k].name, buttonsChecked[k].value)
+      );
+      if (inputSearch != "") {
+        for (
+          j = 0;
+          j <
+          searchOneFilter(buttonsChecked[k].name, buttonsChecked[k].value)
+            .length;
+          j++
+        ) {
+          if (
+            searchOneFilter(buttonsChecked[k].name, buttonsChecked[k].value)
+              [j].innerHTML.toLowerCase()
+              .includes(inputSearch)
+          ) {
+            filteredElements["searchBar"].push(
+              searchOneFilter(buttonsChecked[k].name, buttonsChecked[k].value)[
+                j
+              ]
+            );
+          }
+        }
+      } else {
+        for (list in filteredElements[buttonsChecked[k].name][0]) {
+          
+          x.appendChild(filteredElements[buttonsChecked[k].name][0][list]);
+        }
       }
-      
+      result = filteredElements.flat(1);
     }
-    //console.log(filteredElements[catFilt]);
+  } else {
+    filteredElements["searchBar"] = [];
+
+    for (a = 0; a < searchOneFilter("all", inputSearch).length; a++) {
+      filteredElements["searchBar"][a] = searchOneFilter("all", inputSearch)[a];
     }
   }
+
+  if (filteredElements["searchBar"].length == 0) {
+  }
+  for (j = 0; j < filteredElements["searchBar"].length; j++) {
+    x.appendChild(filteredElements["searchBar"][j]);
+  }
+  //searchbar
+
+  /*
+  for (catFilt in filteredElements) {
+    for (p = 0; p < filteredElements[catFilt].length; p++) {
+      //FILTER ONE BY ONE (an array for fitler 1, an array for filter 3)
+
+      for (
+        filteredForm = 0;
+        filteredForm < filteredElements[catFilt][p].length;
+        filteredForm++
+      ) {
+        x.appendChild(filteredElements[catFilt][p][filteredForm]);
+      }
+    }
+  }*/
 }
 
 function darkMode() {
   var element = document.body;
   element.classList.toggle("dark-mode");
+}
+
+function show() {
+  let list2show = document.getElementsByClassName("form-control");
+  for (cell = 0; cell < list2show.length;cell++) {
+    console.log(list2show);
+    list2show[cell].classList.toggle("show");
+  }
 }
