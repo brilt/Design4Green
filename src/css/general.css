@@ -228,3 +228,9 @@ footer:after {
 	border-color: rgb(255, 165, 86);
 	background-color: rgb(255, 165, 86);
 }
+
+/*-- Panier --*/
+.dark-mode #panier{
+    background-color: rgb(73, 58, 38);
+    padding: 0.8em 1em;
+}
