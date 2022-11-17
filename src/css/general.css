@@ -17,12 +17,55 @@ body {
     height: 2.3em;
     width: 50vw;
     min-width: 20em;
+    margin: 0.5em 1em;
     padding: 0em 0.7em;
     color: rgb(0, 0, 0);
 }
+::placeholder, ::-webkit-input-placeholder {
+    color: rgb(180, 55, 151);
+}
+
+
 
 /*-------------------- FILTRES --------------------*/
-
+.form-control {
+    font-family: system-ui, sans-serif;
+  font-size: 2rem;
+  font-weight: bold;
+  line-height: 1.1;
+  display: grid;
+  grid-template-columns: 1em auto;
+  gap: 0.5em;
+}
+input[type="checkbox"] {
+    /* Cacher checkbox originale*/
+    -webkit-appearance: none;
+    appearance: none;  
+    background-color: #fff;/* For iOS < 15 to remove gradient background */
+    margin: 0;
+    /*custom checkbox non sélectionnées */
+    font: inherit;
+    color: currentColor;
+    width: 1.15em;
+    height: 1.15em;
+    border: 0.15em solid currentColor;
+    border-radius: 0.15em;
+    transform: translateY(-0.075em); /*Aligner la boite et le texte un peu mieux*/
+    display: grid;
+    place-content: center;
+}
+.form-control + .form-control {
+  margin-top: 1em; /*espace entre les box*/
+}
+/*custom checkbox sélectionnée*/
+input[type="checkbox"]::before {
+    content: "";
+    width: 0.65em;
+    height: 0.65em;
+    transform: scale(0); /*0 = caché*/
+    transition: 120ms transform ease-in-out;
+    box-shadow: inset 1em 1em var(--form-control-color);
+}
 
 
 /*-------------------- PANIER --------------------*/
@@ -34,34 +77,49 @@ footer p{
     
 }
 
-/*-------------------- DARK MODE --------------------*/
+/*-------------------- DARK MODE --------------------*//*-------------------- DARK MODE --------------------*/
+.dark-mode {
+    background-color: rgb(46, 46, 46);
+    color: white;
+}
+
+/*-- Bouton Dark Mode --*/
 #darkMode {
+    display: block;
     border-style: solid;
 	border-color: rgb(180, 55, 151);
-	border-radius: 5em 1em;
+	border-radius: 0.2em;
 	background-color: rgb(255, 255, 255);
 	padding: 0.1em 0.5em;
-	position: absolute;
-	right: 1em;
-	top: 1em;
-	display: flex;
+    margin: 1em;
     color: rgb(180, 55, 151);
 	font-style: italic;
 }
-
 #darkMode:hover {
-	background-color: rgb(250, 238, 249);
-    border-color: rgb(161, 46, 134);
-	border-style: solid;
-    color: rgb(161, 46, 134);
+	border-color: rgb(241, 112, 0);
+	background-color: rgb(254, 249, 241);
+    color: rgb(241, 112, 0);
+}
+.dark-mode #darkMode {
+
+	border-color: rgb(241, 112, 0);
+	background-color: rgb(46, 46, 46);
+    color: rgb(241, 112, 0);
+}
+.dark-mode #darkMode:hover {
+	background-color: rgb(49, 31, 45);
+    border-color: rgb(205, 82, 156);
+    color: rgb(205, 82, 156);
 }
 
-.dark-mode {
-    background-color: rgb(37, 37, 37);
-    color: white;
-}
-  
+/*-- Search Bar --*/
 .dark-mode #searchbar {
-    background-color: rgb(250, 246, 238);
+    background-color: rgb(68, 58, 45);
     border-color: rgb(255, 119, 0);
 }
+
+.dark-mode ::placeholder, .dark-mode ::-webkit-input-placeholder {
+    color: rgb(255, 119, 0);
+}
+
+/*-- Filtres --*/

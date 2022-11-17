@@ -4,19 +4,27 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="src/css/general.css">
+    <link rel="stylesheet" href="src/css/general.css" />
     <title>Document</title>
   </head>
   <body>
     <div>
-        <button id="darkMode" onClick="darkMode()">Dark/Light Mode</button>
+      <button id="darkMode" onClick="darkMode()">Dark/Light Mode</button>
       <input
         id="searchbar"
         onkeyup="search()"
         type="text"
         name="search"
+        placeholder="Rechercher..."
       />
-      
+      <label class="form-control">
+        <input  type="checkbox" value="3" name="boxDuree" onchange="addFilters()">
+        label 3
+      </label>
+      <label class="form-control">
+        <input  type="checkbox" value="1" name="boxDuree" onchange="addFilters()">
+        label 1
+      </label>
     </div>
     <ul id="list-holder"></ul>
     <ul id="data"></ul>
@@ -28,4 +36,3 @@
   </body>
 </html>
 <script src="src\js\import.js"></script>
-
