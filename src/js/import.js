@@ -241,9 +241,9 @@ function searchAll() {
   let buttonsChecked = document.querySelectorAll(
     "input:checked"
   );
+  filteredElements["duree de la formation"] = [];
   for (k = 0; k < buttonsChecked.length; k++){
-    filteredElements[buttonsChecked[k].name] = [];
-    console.log(filteredElements[buttonsChecked[k].name]);
+    console.log(buttonsChecked[k].name);
     //filteredElements[buttonsChecked[i].name]//arraylist with the categorie as key, each key will have a list of results with the filter
     filteredElements[buttonsChecked[k].name].push(searchOneFilter(buttonsChecked[k].name, buttonsChecked[k].value));
     //console.log(filteredElements);
