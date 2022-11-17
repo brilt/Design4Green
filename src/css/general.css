@@ -101,7 +101,7 @@ input[type="checkbox"]:checked::before {
     transform: scale(1);
 }
 
-/*-- Submit button --*/
+/*-- Rechercher button --*/
 #sub_filtre {
     border-style: solid;
 	border-color: rgb(180, 55, 151);
@@ -136,16 +136,45 @@ input[type="checkbox"]:checked::before {
     background-color: rgb(250, 238, 249);
     border-radius: 0.2em;
 }
+#data {
+    list-style-type: none;
+}
+li {
+    border-top: 0.1em solid rgb(180, 55, 151);
+    padding: 0.5em;
+}
+li:hover {
+    background-color: rgb(240, 219, 238);
+    border-left: 0.1em solid rgb(180, 55, 151);
+    border-radius: 0.2em;
+}
 
 /*-------------------- PANIER --------------------*/
 #panier{
     background-color: rgb(250, 238, 249);
     padding: 0.8em 1em;
+    border-radius: 0.2em;
 }
+
 h1 {
     margin: 0em;
     font: inherit;
     font-weight: bold;
+}
+
+#add_panier {
+    border-style: solid;
+	border-color: rgb(180, 55, 151);
+	border-radius: 0.2em;
+	background-color: rgb(180, 55, 151);
+    padding: 0.1em 0.3em;
+    margin: 0.5em;
+    color: rgb(255, 255, 255);
+}
+#add_panier:hover {
+	border-color: rgb(129, 33, 107);
+	background-color: rgb(129, 33, 107);
+    color: white;
 }
 
 /*-------------------- FOOTER --------------------*/
@@ -153,6 +182,8 @@ footer p{
     float: left;
     width: 33.33%;
     text-align: center;
+    font-size: 0.7em;
+    margin: 3.5em 0em;
 }
 footer:after {
     content: "";
@@ -212,7 +243,7 @@ footer:after {
 }
 
 .dark-mode [type="checkbox"] {
-    background-color: rgb(46, 46, 46);
+    background-color: rgb(50, 41, 36);
     border-color: white;
 }
 .dark-mode [type="checkbox"]:hover {
@@ -235,4 +266,28 @@ footer:after {
 /*-------------------Map+list---------------------*/
 .dark-mode .main { /*liste*/
     background-color: rgb(73, 58, 38);
+}
+
+.dark-mode li {
+    border-top: 0.1em solid rgb(255, 119, 0);
+}
+.dark-mode li:hover {
+    background-color: rgb(57, 44, 27);
+    border-left: 0.1em solid rgb(255, 119, 0);
+}
+
+/*-- Panier --*/
+.dark-mode #panier{
+    background-color: rgb(73, 58, 38);
+}
+
+.dark-mode #add_panier {
+	border-color: rgb(255, 119, 0);
+	background-color: rgb(255, 119, 0);
+    color: rgb(255, 255, 255);
+}
+.dark-mode #add_panier:hover {
+	border-color: rgb(255, 165, 86);
+	background-color: rgb(255, 165, 86);
+    color: white;
 }

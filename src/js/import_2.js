@@ -91,10 +91,22 @@ function filterformation(filter) {
     }
   });
 }
+function showDetails(){
 
+}
 function displayAll() {
   json.forEach((formation) => {
     var table_output = document.createElement("li");
+    table_output.onclick = function () {
+      if (!table_output.classList.contains("detailed")) {
+        table_output.innerHTML += formation["description"];
+        table_output.classList.add("detailed");
+      } else {
+        table_output.innerHTML = table_output.innerHTML.replace(formation["description"], "");
+        table_output.classList.remove("detailed");
+      }
+      
+    };
     var loc = "";
     var nom = "";
     var intit = "";
@@ -117,7 +129,7 @@ function displayAll() {
       loc = formation["nom"] + "   |   ";
     }
     if (formation.hasOwnProperty("duree de la formation")) {
-      duree = formation["duree de la formation"] + "";
+      duree = formation["duree de la formation"] + " jour(s)";
     }
     table_output.classList.add("listePrincipale");
     table_output.appendChild(
@@ -136,7 +148,6 @@ function displayAll() {
   });
 }
 
-
 function searchOneFilter(cat, value) {
   filteredOneList = [];
   //elem = document.createElement("li");
@@ -145,7 +156,17 @@ function searchOneFilter(cat, value) {
     if (cat != "all") {
       if (typeof obj[cat] !== "undefined" && obj[cat] == value) {
         elem = document.createElement("li");
+        
         elem.appendChild(document.createTextNode(oneElementToString(obj)));
+        elem.onclick = function () {
+          if (!elem.classList.contains("detailed")) {
+            elem.innerHTML += obj["description"];
+            elem.classList.add("detailed");
+          } else {
+            elem.innerHTML = elem.innerHTML.replace(obj["description"], "");
+            elem.classList.remove("detailed");
+          }
+        };
         filteredOneList.push(elem); //filteredOneList is array of li
       }
     } else {
@@ -158,7 +179,15 @@ function searchOneFilter(cat, value) {
           if (obj[categorie].toLowerCase().includes(value)) {
             elem = document.createElement("li");
             elem.appendChild(document.createTextNode(oneElementToString(obj)));
-
+            elem.onclick = function () {
+              if (!elem.classList.contains("detailed")) {
+                elem.innerHTML += obj["description"];
+                elem.classList.add("detailed");
+              } else {
+                elem.innerHTML = elem.innerHTML.replace(obj["description"], "");
+                elem.classList.remove("detailed");
+              }
+            };
             filteredOneList.push(elem); //filteredOneList is array of li
           }
         }
@@ -209,57 +238,115 @@ function searchAll() {
         }
       } else {
         for (list in filteredElements[buttonsChecked[k].name][0]) {
-          
-          x.appendChild(filteredElements[buttonsChecked[k].name][0][list]);
+          //x.appendChild(filteredElements[buttonsChecked[k].name][0][list]);
         }
       }
-      
     }
     let filtUsed = [];
     for (ddd in filteredElements) {
       if (filteredElements[ddd].length != 0) {
-        console.log(filteredElements[ddd]);
         filtUsed.push(ddd);
       }
-      
     }
-
-    console.log(filteredElements[filtUsed[1]][0].length);
-    console.log(filteredElements[filtUsed[0]][0].length);
-    if (filteredElements[filtUsed[0]][0].length > filteredElements[filtUsed[1]][0].length) {
-       small = filteredElements[filtUsed[1]][0];
-       smallSize = filteredElements[filtUsed[1]][0].length;
-       big = filteredElements[filtUsed[0]][0];
-       bigSize = filteredElements[filtUsed[0]][0].length;
-    } else {
-       small = filteredElements[filtUsed[0]][0];
-       smallSize = filteredElements[filtUsed[0]][0].length;
-      big = filteredElements[filtUsed[1]][0];
-      bigSize = filteredElements[filtUsed[1]][0].length;
-      
-    }
-    console.log("big: "+bigSize);
-    console.log("small: "+smallSize);
-    console.log(small[0].innerHTML);
+    console.log(filtUsed.length);
+    console.log(filtUsed);
     let result = [];
-    for (size = 0; size < smallSize; size++) {
-      for (size2 = 0; size2 < bigSize; size2++) {
-        if (big[size2].innerHTML == small[size].innerHTML) {
-          console.log("big: "+big[size2].innerHTML);
-        console.log("small: "+small[size].innerHTML);
-          console.log("yes");
-          result.push(small[size]);
+    switch (filtUsed.length) {
+      case 1:
+        x.innerHTML = "";
+        for (list in filteredElements[filtUsed][0]) {
+          x.appendChild(filteredElements[filtUsed][0][list]);
         }
-      }
-    }
-    console.log(result);
-    x.innerHTML = '';
-    for (eachresult in result) {
-      x.appendChild(result[eachresult]);
-    }
-    
+        break;
+      case 2:
+        if (
+          filteredElements[filtUsed[0]][0].length >
+          filteredElements[filtUsed[1]][0].length
+        ) {
+          small = filteredElements[filtUsed[1]][0];
+          smallSize = filteredElements[filtUsed[1]][0].length;
+          big = filteredElements[filtUsed[0]][0];
+          bigSize = filteredElements[filtUsed[0]][0].length;
+        } else {
+          small = filteredElements[filtUsed[0]][0];
+          smallSize = filteredElements[filtUsed[0]][0].length;
+          big = filteredElements[filtUsed[1]][0];
+          bigSize = filteredElements[filtUsed[1]][0].length;
+        }
+        //console.log(smallSize);
+        //console.log(bigSize);
 
-    
+        for (size = 0; size < smallSize; size++) {
+          for (size2 = 0; size2 < bigSize; size2++) {
+            if (big[size2].innerHTML == small[size].innerHTML) {
+              result.push(small[size]);
+            }
+          }
+        }
+        x.innerHTML = "";
+        for (eachresult in result) {
+          x.appendChild(result[eachresult]);
+        }
+        break;
+      case 3:
+        let orderedLengthFilters = [];
+        result = [];
+        for (idFiltUsed = 0; idFiltUsed < 3; idFiltUsed++){
+          orderedLengthFilters.push(filteredElements[filtUsed[idFiltUsed]][0].length);
+        }
+        
+        orderedLengthFilters = orderedLengthFilters.sort((a, b) => a - b);
+        console.log(orderedLengthFilters);
+
+        small = [];
+        medium = [];
+        big = [];
+        for (idOrdList = 0; idOrdList < 3; idOrdList++){
+          console.log(filteredElements[filtUsed[idOrdList]][0].length);
+          if (filteredElements[filtUsed[idOrdList]][0].length == orderedLengthFilters[0]) {
+            small = filteredElements[filtUsed[idOrdList]][0];
+          //console.log(filteredElements[filtUsed[idOrdList]][0]+" IS SMALL");
+
+          } else if (filteredElements[filtUsed[idOrdList]][0].length == orderedLengthFilters[1]) {
+            medium = filteredElements[filtUsed[idOrdList]][0];
+          //console.log(filteredElements[filtUsed[idOrdList]][0]+" IS MEDIUM");
+
+          } else {
+            big = filteredElements[filtUsed[idOrdList]][0];
+          //console.log(filteredElements[filtUsed[idOrdList]][0]+" IS BIG");
+
+          }
+        }
+        console.log(orderedLengthFilters[0]);
+        console.log(orderedLengthFilters[1]);
+        console.log(orderedLengthFilters[2]);
+        
+        for (size = 0; size < orderedLengthFilters[0]; size++) {
+          for (size2 = 0; size2 < orderedLengthFilters[1]; size2++) {
+            for (size3 = 0; size3 < orderedLengthFilters[2]; size3++){
+              //console.log(small[size].innerHTML);
+              //console.log(medium[size2].innerHTML);
+              //console.log(big[size3].innerHTML);
+              if (small[size].innerHTML == medium[size2].innerHTML && small[size].innerHTML == big[size3].innerHTML) {
+                result.push(small[size]);
+                console.log("IM FUCKING IN");
+              }
+            }
+            
+          }
+        }
+        x.innerHTML = "";
+        for (eachresult in result) {
+          x.appendChild(result[eachresult]);
+        }
+        break;
+
+      default:
+        break;
+    }
+
+   
+
     //const intersection = filteredElements[filtUsed][0].filter(element => array2.includes(element));
   } else {
     filteredElements["searchBar"] = [];
@@ -299,7 +386,7 @@ function darkMode() {
 
 function show() {
   let list2show = document.getElementsByClassName("form-control");
-  for (cell = 0; cell < list2show.length;cell++) {
+  for (cell = 0; cell < list2show.length; cell++) {
     list2show[cell].classList.toggle("show");
   }
 }
