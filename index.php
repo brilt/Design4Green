@@ -13,7 +13,6 @@
 
 <b>Prenom : </b><input name="PRENOM"size=50 maxlength=50 class="texte"><br>
 <input type="submit" value="Envoyer" class="bouton">
-<input type="reset" name="Submit" value="Effacer" class="bouton">
 </form>
 </div>
 </body>
