@@ -35,19 +35,17 @@ body {
     padding: 0.8em 1em;
     display: inline-grid;
     grid-template-columns: auto auto auto auto;
-    column-gap: 1em;
+    column-gap: 1.5em;
 }
 
 #itema {
     margin: 0em;
     font: inherit;
     font-weight: bold;
-    grid-column-start: 1;
-    grid-column-end: 4; /*Prend tout la première ligne*/
+    grid-column: 1 / span 4;    /*Prend tout la première ligne*/
 }
 #itemb {
-    grid-column-start: 1;
-    grid-column-end: 3; /*Prend 2 colonnes*/
+    grid-column: 1 / span 2; /*Prend 2 colonnes*/ 
 }
 h2 {
     margin: 0em 0em 0.5em;
@@ -60,6 +58,7 @@ h2 {
     display: inline-grid;
     grid-template-columns: auto auto;
     gap: 0.1em;
+
 }
 input[type="checkbox"] {
     /* Cacher checkbox originale*/
@@ -113,26 +112,30 @@ input[type="checkbox"]:checked::before {
 .row {  
     display: flex;
     flex-wrap: wrap;
-    color: black;
   
   }
   
-  map {
+  .map {
     flex: 80%;
     padding: 1%;
 
   }
-
-  .liste {
-    flex: 20%;
+  
+  .list {
+    max-width: 20%;
     padding: 1%;
+    float: right;
   }
 
 /*-------------------- PANIER --------------------*/
 #panier{
-    background-color: #aaa;
-    width: 100%;
-    padding: 20px;
+    background-color: rgb(250, 238, 249);
+    padding: 0.8em 1em;
+}
+h1 {
+    margin: 0em;
+    font: inherit;
+    font-weight: bold;
 }
 
 /*-------------------- FOOTER --------------------*/
@@ -147,6 +150,8 @@ input[type="checkbox"]:checked::before {
     display: table;
     clear: both; 
 }
+
+
 /*-------------------- DARK MODE --------------------*//*-------------------- DARK MODE --------------------*//*-------------------- DARK MODE --------------------*/
 .dark-mode {
     background-color: rgb(46, 46, 46);

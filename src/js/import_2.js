@@ -275,43 +275,46 @@ function searchAll() {
             .length;
           j++
         ) {
-          //console.log(filteredElements["searchBar"]);
-
           if (
             searchOneFilter(buttonsChecked[k].name, buttonsChecked[k].value)
               [j].innerHTML.toLowerCase()
               .includes(inputSearch)
           ) {
-            console.log(searchOneFilter(buttonsChecked[k].name, buttonsChecked[k].value)[
-              j
-            ]
-          );
+            console.log(
+              searchOneFilter(buttonsChecked[k].name, buttonsChecked[k].value)[
+                j
+              ]
+            );
             filteredElements["searchBar"].push(
               searchOneFilter(buttonsChecked[k].name, buttonsChecked[k].value)[
                 j
               ]
             );
+            console.log(filteredElements["searchBar"]);
           }
+        }
+      } else {
+        console.log(filteredElements[buttonsChecked[k].name][0]);
+        for (list in filteredElements[buttonsChecked[k].name][0]) {
+          console.log(
+            x.appendChild(filteredElements[buttonsChecked[k].name][0][list])
+          );
+          x.appendChild(filteredElements[buttonsChecked[k].name][0][list]);
         }
       }
       result = filteredElements.flat(1);
     }
-    console.log(filteredElements["searchBar"]);
-    
   } else {
     filteredElements["searchBar"] = [];
-   
-    console.log(searchOneFilter("all", inputSearch));
-    for (a = 0; a < searchOneFilter("all", inputSearch).length; a++){
-      filteredElements["searchBar"][a]=(
-        searchOneFilter("all", inputSearch)[a]);
+
+    for (a = 0; a < searchOneFilter("all", inputSearch).length; a++) {
+      filteredElements["searchBar"][a] = searchOneFilter("all", inputSearch)[a];
     }
-    }
-    
-  console.log(filteredElements["searchBar"][0]);
+  }
+
+  if (filteredElements["searchBar"].length == 0) {
+  }
   for (j = 0; j < filteredElements["searchBar"].length; j++) {
-   
-    console.log(filteredElements["searchBar"][j]);
     x.appendChild(filteredElements["searchBar"][j]);
   }
   //searchbar

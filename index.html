@@ -8,7 +8,7 @@
     <title>Document</title>
   </head>
   <body>
-    <div>
+    <section>
       <button id="darkMode" onClick="darkMode()">Dark/Light Mode</button>
       <input
         id="searchbar"
@@ -22,32 +22,85 @@
         <h2>Modalités d'accès</h2>
         <h2>Type de structure</h2>
         <label class="form-control">
+          <input  type="checkbox" value="0.5" name="duree de la formation" >
+          0.5j
+        </label>
+        <label class="form-control">
           <input  type="checkbox" value="1" name="duree de la formation" >
           1j
         </label>
-        <p>num</p>
-        <p>truc</p>
-        <p>truc</p>
+        <label class="form-control">
+          <input  type="checkbox" value="distanciel" name="modalites acces" >
+          Distanciel
+        </label>
+        <label class="form-control">
+          <input  type="checkbox" value="Privée" name="structure" >
+          Privée
+        </label>
+        <label class="form-control">
+          <input  type="checkbox" value="1.5" name="duree de la formation" >
+          1.5j
+        </label>
+        <label class="form-control">
+          <input  type="checkbox" value="2" name="duree de la formation" >
+          2j
+        </label>
+        <label class="form-control">
+          <input  type="checkbox" value="presentiel" name="modalites acces" >
+          Presentiel
+        </label>
+        <label class="form-control">
+          <input  type="checkbox" value="Privée" name="structure" >
+          Publique
+        </label>
         <label class="form-control">
           <input  type="checkbox" value="3" name="duree de la formation" >
           3j
         </label>
+        <label class="form-control">
+          <input  type="checkbox" value="5" name="duree de la formation" >
+          5j
+        </label>
+        <label class="form-control">
+          <input  type="checkbox" value="presentiel et distanciel" name="modalites acces" >
+          Presentiel/distanciel
+        </label>
+        <label class="form-control">
+          <input  type="checkbox" value="Privée" name="structure" >
+          MOOC
+        </label>
+        <label class="form-control">
+          <input  type="checkbox" value="8" name="duree de la formation" >
+          8j
+        </label>
+        <label class="form-control">
+          <input  type="checkbox" value="10.5" name="duree de la formation" >
+          10.5j
+        </label>
+        <p></p>
+        <p></p>
+        <label class="form-control">
+          <input  type="checkbox" value="58" name="duree de la formation" >
+          58j
+        </label>
       </div>
       <button id="sub_filtre" type="submit" onclick="searchAll()">Rechercher</button>
-    </div>
-    
-    <div class="row">
+    </section>
+    <section>
+
+    <section class="row">
       <div class = "map">
-        <img src="/img/france.jpg">
+        map ici svp 
       </div>
 
-      <div class="liste">
+      <div class="list">
         <ul id="list-holder"></ul>
         <ul id="data"></ul>
       </div>
-    </div>
+    </section>
+
     <div id ="panier">
-      Panier (insérer panier ici)
+      <h1>Panier</h1>
     </div>
 
     <footer id="row">
