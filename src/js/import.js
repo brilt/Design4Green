@@ -225,9 +225,10 @@ function searchOneFilter(cat, value) {
   filteredOneList = [];
   for (i = 0; i < json.length; i++) {
     let obj = json[i];
-    if (typeof obj[cat]!=='undefined' && obj[cat]==value) {
-      filteredOneList.push(oneElementToString(obj));
-
+    if (typeof obj[cat] !== 'undefined' && obj[cat] == value) {
+      elem = document.createElement("li")
+      elem.appendChild(document.createTextNode(oneElementToString(obj)));
+      filteredOneList.push(elem);//filteredOneList is array of li
     }
   }
   return (filteredOneList);
@@ -246,16 +247,22 @@ function searchAll() {
     console.log(buttonsChecked[k].name);
     //filteredElements[buttonsChecked[i].name]//arraylist with the categorie as key, each key will have a list of results with the filter
     filteredElements[buttonsChecked[k].name].push(searchOneFilter(buttonsChecked[k].name, buttonsChecked[k].value));
+    console.log(filteredElements[buttonsChecked[k].name]);
     //console.log(filteredElements);
     result = filteredElements.flat(1);
     //console.log(searchOneFilter(buttonsChecked[k].name, buttonsChecked[k].value));
     
   }
   for (catFilt in filteredElements) {
-    for (p = 0; p < filteredElements[catFilt].length;p++/*elemFiltered in catFilt*/) {
-      elem = document.createElement("li");
-      elem.appendChild(document.createTextNode(filteredElements[catFilt][p]));
-      x.appendChild(elem);
+    for (p = 0; p < filteredElements[catFilt].length; p++) { //FILTER ONE BY ONE (an array for fitler 1, an array for filter 3)
+      console.log(filteredElements[catFilt][p]);
+      for (filteredForm = 0; filteredForm < filteredElements[catFilt][p].length; filteredForm++){
+        console.log(filteredElements[catFilt][p][filteredForm]);
+        x.appendChild(filteredElements[catFilt][p][filteredForm]);
+      }
+      //elem = document.createElement("li");
+      //elem.appendChild(document.createTextNode(filteredElements[catFilt][p]));
+      
     }
     //console.log(filteredElements[catFilt]);
   }

@@ -28,6 +28,8 @@ body {
 
 
 /*-------------------- FILTRES --------------------*/
+
+/*-- Checkbox --*/
 .form-control {
     display: grid;
     grid-template-columns: 1em auto;
@@ -68,6 +70,21 @@ input[type="checkbox"]:checked::before {
     transform: scale(1);
 }
 
+/*-- Submit button --*/
+#sub_filtre {
+    border-style: solid;
+	border-color: rgb(180, 55, 151);
+	border-radius: 0.2em;
+	background-color: rgb(180, 55, 151);
+    padding: 0.1em 0.3em;
+    margin: 0.3em;
+    color: rgb(255, 255, 255);
+}
+#sub_filtre:hover {
+	border-color: rgb(241, 112, 0);
+	background-color: rgb(254, 249, 241);
+    color: rgb(241, 112, 0);
+}
 
 /*-------------------- PANIER --------------------*/
 
@@ -78,7 +95,7 @@ footer p{
     
 }
 
-/*-------------------- DARK MODE --------------------*//*-------------------- DARK MODE --------------------*/
+/*-------------------- DARK MODE --------------------*//*-------------------- DARK MODE --------------------*//*-------------------- DARK MODE --------------------*/
 .dark-mode {
     background-color: rgb(46, 46, 46);
     color: white;
@@ -126,9 +143,10 @@ footer p{
 /*-- Filtres --*/
 .dark-mode [type="checkbox"] {
     background-color: rgb(46, 46, 46);
+    border-color: white;
 }
 .dark-mode [type="checkbox"]:hover {
-    background-color: rgb(188, 89, 2);
+    background-color: rgb(199, 93, 0);
 }
 .dark-mode [type="checkbox"]::before {
     background-color: rgb(255, 119, 0);
