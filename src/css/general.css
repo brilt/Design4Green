@@ -15,7 +15,7 @@ body {
     border-width: 0.2em;
     border-radius:1.5em;
     height: 2.3em;
-    width: 35vw;
+    width: 45vw;
     min-width: 20em;
     margin: 0.5em 1em;
     padding: 0em 0.7em;
@@ -33,6 +33,7 @@ body {
     background-color: rgb(250, 238, 249);
     border-radius: 0.2em;
     padding: 0.8em 1em;
+    margin: 0.5em 1em;
     display: inline-grid;
     grid-template-columns: auto auto auto auto;
     column-gap: 1.5em;
@@ -115,24 +116,26 @@ input[type="checkbox"]:checked::before {
 	background-color: rgb(129, 33, 107);
 }
 /*-------------------Map+list---------------------*/
+.resultats {    /*Section résultats*/
+    margin: 1em 0em;
+}
 
-.row {  
+.row {
     display: flex;
     flex-wrap: wrap;
+}
   
-  }
+.side {
+    flex: 20%;
+}
   
-  .map {
-    flex: 80%;
-    padding: 1%;
-
-  }
-  
-  .list {
-    max-width: 20%;
-    padding: 1%;
-    float: right;
-  }
+.main { /*liste*/
+    width: 50%;
+    max-height: 800px;
+    overflow-y: scroll;
+    background-color: rgb(250, 238, 249);
+    border-radius: 0.2em;
+}
 
 /*-------------------- PANIER --------------------*/
 #panier{
@@ -228,21 +231,8 @@ footer:after {
 	border-color: rgb(255, 165, 86);
 	background-color: rgb(255, 165, 86);
 }
-/*       Cartes    et    liste                      */
-.row {
-    display: flex;
-    flex-wrap: wrap;
-  }
-  
-  .side {
-    flex: 20%;
-    background-color: white;
 
-  }
-  
-  .main {
-    width: 50%;
-    max-height: 800px;
-    overflow-y: scroll;
-    background-color: pink;
-  }
+/*-------------------Map+list---------------------*/
+.dark-mode .main { /*liste*/
+    background-color: rgb(73, 58, 38);
+}

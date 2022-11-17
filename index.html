@@ -21,6 +21,7 @@
       name="search"
       placeholder="Recherche..."
     />
+    <button id="sub_filtre" type="submit" onclick="searchAll()">Rechercher</button>    
     <div class="filtres">
       <h1 id="itema" onclick="show()">Filtres</h1>
       <h2 id="itemb" onclick="show()">Durée de formation</h2>
@@ -89,86 +90,86 @@
         58j
       </label>
     </div>
-    <button id="sub_filtre" type="submit" onclick="searchAll()">Rechercher</button>
-    </section>
-  <div class="row">
-    <div class="side">
-      <div id="container" class="side" style="height: 600px; max-width: 100%;">  </div>
-      <script type="text/javascript">
-        $(function () {
-          var processed_json = new Array();
+  </section>
+  <section class="resultats">
+    <div class="row">
+      <div class="side">
+        <div id="container" class="side" style="height: 600px; max-width: 100%;">  </div>
+        <script type="text/javascript">
+          $(function () {
+            var processed_json = new Array();
 
-          $.getJSON('data/liste.json', function (data) {
-            for (i = 0; i < data.length; i++) {
-              processed_json.push([data[i].city, data[i].formation]);
-            }
+            $.getJSON('data/liste.json', function (data) {
+              for (i = 0; i < data.length; i++) {
+                processed_json.push([data[i].city, data[i].formation]);
+              }
 
-            $.getJSON('data/departement.geojson', function (geojson) {
+              $.getJSON('data/departement.geojson', function (geojson) {
 
-              Highcharts.mapChart('container', {
-                title: {
-                  text: '',
-                },
-                chart: {
-                  map: geojson,
-                  plotBackgroundColor: '#FFFFFF'
-                },
-                mapNavigation: {
-                  enabled: true,
-                  buttonOptions: {
-                    verticalAlign: 'bottom'
+                Highcharts.mapChart('container', {
+                  title: {
+                    text: '',
                   },
-                  enableDoubleClickZoomTo: true
-                },
-
-                series: [{
-                  showInLegend: false,
-                  animation: false,
-                  data: processed_json,
-                  keys: ['nom', 'nombre'],
-                  joinBy: 'nom',
-                  name: 'Lieux',
-                  borderColor: '#000000',
-                  nullColor: '#EFEFEF',
-                  states: {
-                    hover: {
-                      color: '#AAAAAA'
-                    },
+                  chart: {
+                    map: geojson,
+                    plotBackgroundColor: '#FFFFFF'
                   },
-                  tooltip: {
-                    pointFormat: '{point.nom}: {point.nombre} formation',
-                  },
-                  dataLabels: {
+                  mapNavigation: {
                     enabled: true,
-                    format: '{point.nom}',
-                    style: {
-                      fontSize: '8px',
-                      textOutline: '',
-                      textShadow: false,
+                    buttonOptions: {
+                      verticalAlign: 'bottom'
                     },
+                    enableDoubleClickZoomTo: true
                   },
-                  point: {
-                    events: {
-                      click: function () {
-                        alert(this.nom);
-                        return (this.nom);
+
+                  series: [{
+                    showInLegend: false,
+                    animation: false,
+                    data: processed_json,
+                    keys: ['nom', 'nombre'],
+                    joinBy: 'nom',
+                    name: 'Lieux',
+                    borderColor: '#000000',
+                    nullColor: '#EFEFEF',
+                    states: {
+                      hover: {
+                        color: '#AAAAAA'
+                      },
+                    },
+                    tooltip: {
+                      pointFormat: '{point.nom}: {point.nombre} formation',
+                    },
+                    dataLabels: {
+                      enabled: true,
+                      format: '{point.nom}',
+                      style: {
+                        fontSize: '8px',
+                        textOutline: '',
+                        textShadow: false,
+                      },
+                    },
+                    point: {
+                      events: {
+                        click: function () {
+                          alert(this.nom);
+                          return (this.nom);
+                        }
                       }
-                    }
-                  },
-                }]
+                    },
+                  }]
+                });
               });
             });
           });
-        });
 
 
-      </script>
+        </script>
+        </div>
+        <div class="main">
+          <ul id="data"></ul>
+        </div>
       </div>
-      <div class="main">
-       <ul id="list-holder"></ul>
-       <ul id="data"></ul>
-      </div>
-    </div>
+  </section>  
   <div id="panier">
     Panier (insérer panier ici)
   </div>

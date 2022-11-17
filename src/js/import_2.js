@@ -58,24 +58,24 @@ function oneElementToString(formation) {
   var type = "";
   var modal = "";
   if (formation.hasOwnProperty("intitulé")) {
-    intit = formation["intitulé"] + "- ";
+    intit = formation["intitulé"] + "   |   ";
   }
   if (formation.hasOwnProperty("localisation")) {
-    loc = formation["localisation"] + "- ";
+    loc = formation["localisation"] + "   |   ";
   }
   if (formation.hasOwnProperty("Type d'organisme")) {
-    type = formation["Type d'organisme"] + "- ";
+    type = formation["Type d'organisme"] + "   |   ";
   }
   if (formation.hasOwnProperty("modalites acces")) {
-    modal = formation["modalites acces"] + "- ";
+    modal = formation["modalites acces"] + "   |   ";
   }
   if (formation.hasOwnProperty("nom")) {
-    loc = formation["nom"] + "- ";
+    loc = formation["nom"] + "   |   ";
   }
   if (formation.hasOwnProperty("duree de la formation")) {
     duree = formation["duree de la formation"];
   }
-  return ["-"] + intit + nom + type + loc + modal + duree;
+  return intit + nom + type + loc + modal + duree;
 }
 
 function filterformation(filter) {
@@ -102,26 +102,26 @@ function displayAll() {
     var type = "";
     var modal = "";
     if (formation.hasOwnProperty("intitulé")) {
-      intit = formation["intitulé"] + "- ";
+      intit = formation["intitulé"] + "   |   ";
     }
     if (formation.hasOwnProperty("localisation")) {
-      loc = formation["localisation"] + "- ";
+      loc = formation["localisation"] + "   |   ";
     }
     if (formation.hasOwnProperty("Type d'organisme")) {
-      type = formation["Type d'organisme"] + "- ";
+      type = formation["Type d'organisme"] + "   |   ";
     }
     if (formation.hasOwnProperty("modalites acces")) {
-      modal = formation["modalites acces"] + "- ";
+      modal = formation["modalites acces"] + "   |   ";
     }
     if (formation.hasOwnProperty("nom")) {
-      loc = formation["nom"] + "- ";
+      loc = formation["nom"] + "   |   ";
     }
     if (formation.hasOwnProperty("duree de la formation")) {
-      duree = formation["duree de la formation"];
+      duree = formation["duree de la formation"] + "";
     }
     table_output.classList.add("listePrincipale");
     table_output.appendChild(
-      document.createTextNode(["-"] + intit + nom + type + loc + modal + duree)
+      document.createTextNode(intit + nom + type + loc + modal + duree)
     );
     table_output.classList.add(formation["Modalites acces"]);
 
@@ -136,86 +136,6 @@ function displayAll() {
   });
 }
 
-/*
-function search(catFiltre, valeurFiltre) {
-  let input = document.getElementById("searchbar").value;
-  input = input.toLowerCase();
-  let x = document.querySelector("#data");
-  x.innerHTML = "";
-  let found = false;
-  searchedElements = [];
-  results = new Array();
-  for (i = 0; i < json.length; i++) {
-    let obj = json[i];
-    for (categorie in obj) {
-      if (
-        typeof obj[categorie] !== "undefined" &&
-        typeof obj[categorie] == "string"
-      ) {
-        if (obj[categorie].toLowerCase().includes(input)) {
-          elem = document.createElement("li");
-          elem.classList.add(obj["duree de la formation"]);
-
-          var loc = "";
-          var nom = "";
-          var intit = "";
-          var duree = "";
-          var type = "";
-          var modal = "";
-          if (obj.hasOwnProperty("intitulé")) {
-            intit = obj["intitulé"] + "- ";
-          }
-          if (obj.hasOwnProperty("localisation")) {
-            loc = obj["localisation"] + "- ";
-          }
-          if (obj.hasOwnProperty("Type d'organisme")) {
-            type = obj["Type d'organisme"] + "- ";
-          }
-          if (obj.hasOwnProperty("modalites acces")) {
-            modal = obj["modalites acces"] + "- ";
-          }
-          if (obj.hasOwnProperty("nom")) {
-            loc = obj["nom"] + "- ";
-          }
-          if (obj.hasOwnProperty("duree de la formation")) {
-            duree = obj["duree de la formation"];
-          }
-          elem.innerHTML = ["-"] + intit + nom + type + loc + modal + duree;
-          searchedElements.push(elem);
-          //x.appendChild(elem);
-          found = true;
-          break;
-        }
-      }
-    }
-  }
-
-  //filteredElements = searchedElements;
-    //x.innerHTML = "";
-    found = false;
-    for (el in searchedElements) {
-        for (filter in filters) {
-          for (i = 0; i < filters[filter].length;i++) {//remplacer par boucle i
-          if (
-            searchedElements[el].classList.contains(filters[filter][i])
-          ) {
-            filteredElements.push(searchedElements[el]);
-            found = true;
-          } 
-        }
-      }
-    }
-  
-  searchedElements.forEach((result) => {
-    x.appendChild(result);
-  });
-
-  if (!found) {
-    x.appendChild(
-      document.createTextNode("Aucun élement ne correspond à votre recherche")
-    );
-  }
-}*/
 
 function searchOneFilter(cat, value) {
   filteredOneList = [];
@@ -293,8 +213,54 @@ function searchAll() {
           x.appendChild(filteredElements[buttonsChecked[k].name][0][list]);
         }
       }
-      result = filteredElements.flat(1);
+      
     }
+    let filtUsed = [];
+    for (ddd in filteredElements) {
+      if (filteredElements[ddd].length != 0) {
+        console.log(filteredElements[ddd]);
+        filtUsed.push(ddd);
+      }
+      
+    }
+
+    console.log(filteredElements[filtUsed[1]][0].length);
+    console.log(filteredElements[filtUsed[0]][0].length);
+    if (filteredElements[filtUsed[0]][0].length > filteredElements[filtUsed[1]][0].length) {
+       small = filteredElements[filtUsed[1]][0];
+       smallSize = filteredElements[filtUsed[1]][0].length;
+       big = filteredElements[filtUsed[0]][0];
+       bigSize = filteredElements[filtUsed[0]][0].length;
+    } else {
+       small = filteredElements[filtUsed[0]][0];
+       smallSize = filteredElements[filtUsed[0]][0].length;
+      big = filteredElements[filtUsed[1]][0];
+      bigSize = filteredElements[filtUsed[1]][0].length;
+      
+    }
+    console.log("big: "+bigSize);
+    console.log("small: "+smallSize);
+    console.log(small[0].innerHTML);
+    let result = [];
+    for (size = 0; size < smallSize; size++) {
+      for (size2 = 0; size2 < bigSize; size2++) {
+        if (big[size2].innerHTML == small[size].innerHTML) {
+          console.log("big: "+big[size2].innerHTML);
+        console.log("small: "+small[size].innerHTML);
+          console.log("yes");
+          result.push(small[size]);
+        }
+      }
+    }
+    console.log(result);
+    x.innerHTML = '';
+    for (eachresult in result) {
+      x.appendChild(result[eachresult]);
+    }
+    
+
+    
+    //const intersection = filteredElements[filtUsed][0].filter(element => array2.includes(element));
   } else {
     filteredElements["searchBar"] = [];
 
@@ -334,7 +300,6 @@ function darkMode() {
 function show() {
   let list2show = document.getElementsByClassName("form-control");
   for (cell = 0; cell < list2show.length;cell++) {
-    console.log(list2show);
     list2show[cell].classList.toggle("show");
   }
 }
