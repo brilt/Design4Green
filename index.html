@@ -1,113 +1,184 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="src/css/general.css" />
-    <title>Document</title>
-  </head>
-  <body>
-    <section>
-      <button id="darkMode" onClick="darkMode()">Dark/Light Mode</button>
-      <input
-        id="searchbar"
-        type="text"
-        name="search"
-        placeholder="Recherche..."
-      />
-      <div class="filtres">
-        <h1 id="itema" onclick="show()">Filtres</h1>
-        <h2 id="itemb" onclick="show()">Durée de formation</h2>
-        <h2 onclick="show()">Modalités d'accès</h2>
-        <h2 onclick="show()">Type de structure</h2>
-        <label class="form-control">
-          <input  type="checkbox" value="0.5" name="duree de la formation" >
-          0.5j
-        </label>
-        <label class="form-control">
-          <input  type="checkbox" value="1" name="duree de la formation" >
-          1j
-        </label>
-        <label class="form-control">
-          <input  type="checkbox" value="Distanciel" name="modalites acces" >
-          Distanciel
-        </label>
-        <label class="form-control">
-          <input  type="checkbox" value="Privée" name="structure" >
-          Privée
-        </label>
-        <label class="form-control">
-          <input  type="checkbox" value="1.5" name="duree de la formation" >
-          1.5j
-        </label>
-        <label class="form-control">
-          <input  type="checkbox" value="2" name="duree de la formation" >
-          2j
-        </label>
-        <label class="form-control">
-          <input  type="checkbox" value="présentiel" name="modalites acces" >
-          Presentiel
-        </label>
-        <label class="form-control">
-          <input  type="checkbox" value="Publique" name="structure" >
-          Publique
-        </label>
-        <label class="form-control">
-          <input  type="checkbox" value="3" name="duree de la formation" >
-          3j
-        </label>
-        <label class="form-control">
-          <input  type="checkbox" value="5" name="duree de la formation" >
-          5j
-        </label>
-        <label class="form-control">
-          <input  type="checkbox" value="Présentiel et distanciel" name="modalites acces" >
-          Presentiel/distanciel
-        </label>
-        <label class="form-control">
-          <input  type="checkbox" value="Privée" name="structure" >
-          MOOC
-        </label>
-        <label class="form-control">
-          <input  type="checkbox" value="8" name="duree de la formation" >
-          8j
-        </label>
-        <label class="form-control">
-          <input  type="checkbox" value="10.5" name="duree de la formation" >
-          10.5j
-        </label>
-        <p></p>
-        <p></p>
-        <label class="form-control">
-          <input  type="checkbox" value="58" name="duree de la formation" >
-          58j
-        </label>
-      </div>
-      <button id="sub_filtre" type="submit" onclick="searchAll()">Rechercher</button>
-    </section>
-    <section>
 
-    <section class="row">
-      <div class = "map">
-        map ici svp 
-      </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="src/css/general.css" />
+  <title>Document</title>
+</head>
 
-      <div class="list">
-        <ul id="list-holder"></ul>
-        <ul id="data"></ul>
-      </div>
-    </section>
+<script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+<script src="src/js/highmaps.js"></script>
 
-    <div id ="panier">
-      <h1>Panier</h1>
+<body>
+  <section>
+    <button id="darkMode" onClick="darkMode()">Dark/Light Mode</button>
+    <input
+      id="searchbar"
+      type="text"
+      name="search"
+      placeholder="Recherche..."
+    />
+    <div class="filtres">
+      <h1 id="itema" onclick="show()">Filtres</h1>
+      <h2 id="itemb" onclick="show()">Durée de formation</h2>
+      <h2 onclick="show()">Modalités d'accès</h2>
+      <h2 onclick="show()">Type de structure</h2>
+      <label class="form-control">
+        <input  type="checkbox" value="0.5" name="duree de la formation" >
+        0.5j
+      </label>
+      <label class="form-control">
+        <input  type="checkbox" value="1" name="duree de la formation" >
+        1j
+      </label>
+      <label class="form-control">
+        <input  type="checkbox" value="Distanciel" name="modalites acces" >
+        Distanciel
+      </label>
+      <label class="form-control">
+        <input  type="checkbox" value="Privée" name="structure" >
+        Privée
+      </label>
+      <label class="form-control">
+        <input  type="checkbox" value="1.5" name="duree de la formation" >
+        1.5j
+      </label>
+      <label class="form-control">
+        <input  type="checkbox" value="2" name="duree de la formation" >
+        2j
+      </label>
+      <label class="form-control">
+        <input  type="checkbox" value="présentiel" name="modalites acces" >
+        Presentiel
+      </label>
+      <label class="form-control">
+        <input  type="checkbox" value="Publique" name="structure" >
+        Publique
+      </label>
+      <label class="form-control">
+        <input  type="checkbox" value="3" name="duree de la formation" >
+        3j
+      </label>
+      <label class="form-control">
+        <input  type="checkbox" value="5" name="duree de la formation" >
+        5j
+      </label>
+      <label class="form-control">
+        <input  type="checkbox" value="Présentiel et distanciel" name="modalites acces" >
+        Presentiel/distanciel
+      </label>
+      <label class="form-control">
+        <input  type="checkbox" value="Privée" name="structure" >
+        MOOC
+      </label>
+      <label class="form-control">
+        <input  type="checkbox" value="8" name="duree de la formation" >
+        8j
+      </label>
+      <label class="form-control">
+        <input  type="checkbox" value="10.5" name="duree de la formation" >
+        10.5j
+      </label>
+      <p></p>
+      <p></p>
+      <label class="form-control">
+        <input  type="checkbox" value="58" name="duree de la formation" >
+        58j
+      </label>
     </div>
+    <button id="sub_filtre" type="submit" onclick="searchAll()">Rechercher</button>
+    </section>
+  <div class="row">
+    <div class="side">
+      <div id="container" class="side" style="height: 600px; max-width: 100%;">  </div>
+      <script type="text/javascript">
+        $(function () {
+          var processed_json = new Array();
 
-    <footer>
-      <p>Design4Green 2022</p>
-      <p>Equipe 42</p>
-      <p>&#169 2022</p>
-    </footer>
-  </body>
+          $.getJSON('data/liste.json', function (data) {
+            for (i = 0; i < data.length; i++) {
+              processed_json.push([data[i].city, data[i].formation]);
+            }
+
+            $.getJSON('data/departement.geojson', function (geojson) {
+
+              Highcharts.mapChart('container', {
+                title: {
+                  text: '',
+                },
+                chart: {
+                  map: geojson,
+                  plotBackgroundColor: '#FFFFFF'
+                },
+                mapNavigation: {
+                  enabled: true,
+                  buttonOptions: {
+                    verticalAlign: 'bottom'
+                  },
+                  enableDoubleClickZoomTo: true
+                },
+
+                series: [{
+                  showInLegend: false,
+                  animation: false,
+                  data: processed_json,
+                  keys: ['nom', 'nombre'],
+                  joinBy: 'nom',
+                  name: 'Lieux',
+                  borderColor: '#000000',
+                  nullColor: '#EFEFEF',
+                  states: {
+                    hover: {
+                      color: '#AAAAAA'
+                    },
+                  },
+                  tooltip: {
+                    pointFormat: '{point.nom}: {point.nombre} formation',
+                  },
+                  dataLabels: {
+                    enabled: true,
+                    format: '{point.nom}',
+                    style: {
+                      fontSize: '8px',
+                      textOutline: '',
+                      textShadow: false,
+                    },
+                  },
+                  point: {
+                    events: {
+                      click: function () {
+                        alert(this.nom);
+                        return (this.nom);
+                      }
+                    }
+                  },
+                }]
+              });
+            });
+          });
+        });
+
+
+      </script>
+      </div>
+      <div class="main">
+       <ul id="list-holder"></ul>
+       <ul id="data"></ul>
+      </div>
+    </div>
+  <div id="panier">
+    Panier (insérer panier ici)
+  </div>
+
+  <footer id="row">
+    <p class="column">Design4Green 2022</p>
+    <p class="column">Equipe 42</p>
+    <p class="column">&#169 2022</p>
+  </footer>
+</body>
+
 </html>
 <script src="src\js\import_2.js"></script>

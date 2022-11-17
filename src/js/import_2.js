@@ -288,26 +288,13 @@ function searchAll() {
           }
         }
       } else {
-        //console.log(filteredElements);
         for (list in filteredElements[buttonsChecked[k].name][0]) {
           
           x.appendChild(filteredElements[buttonsChecked[k].name][0][list]);
         }
       }
-      
       result = filteredElements.flat(1);
     }
-    let filtUsed = [];
-    for (ddd in filteredElements) {
-      if (filteredElements[ddd].length != 0) {
-        console.log(filteredElements[ddd]);
-        filtUsed.push(ddd);
-      }
-      
-    }
-    console.log(filteredElements[filtUsed[1]][0]);
-    console.log(filteredElements[filtUsed[1]].filter(element => filteredElements[filtUsed[1]].includes(element)));
-    //const intersection = filteredElements[filtUsed][0].filter(element => array2.includes(element));
   } else {
     filteredElements["searchBar"] = [];
 
@@ -347,6 +334,7 @@ function darkMode() {
 function show() {
   let list2show = document.getElementsByClassName("form-control");
   for (cell = 0; cell < list2show.length;cell++) {
+    console.log(list2show);
     list2show[cell].classList.toggle("show");
   }
 }
