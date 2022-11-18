@@ -29,6 +29,10 @@ body {
 
 /*-------------------- FILTRES --------------------*/
 
+.filtered{
+    display:none;
+}
+
 .filtres {
     background-color: rgb(250, 238, 249);
     border-radius: 0.2em;
@@ -115,9 +119,15 @@ input[type="checkbox"]:checked::before {
 	border-color: rgb(129, 33, 107);
 	background-color: rgb(129, 33, 107);
 }
+
 /*-------------------Map+list---------------------*/
 .resultats {    /*Section résultats*/
     margin: 1em 0em;
+}
+
+#container {
+    width: 45vw;
+    border-radius: 0.2em;
 }
 
 .row {
@@ -129,7 +139,7 @@ input[type="checkbox"]:checked::before {
     flex: 20%;
 }
   
-.main { /*liste*/
+.main {         /*liste*/
     width: 50%;
     max-height: 800px;
     overflow-y: scroll;
@@ -138,6 +148,7 @@ input[type="checkbox"]:checked::before {
 }
 #data {
     list-style-type: none;
+    padding: 0em 1em;
 }
 li {
     border-top: 0.1em solid rgb(180, 55, 151);
@@ -147,6 +158,34 @@ li:hover {
     background-color: rgb(240, 219, 238);
     border-left: 0.1em solid rgb(180, 55, 151);
     border-radius: 0.2em;
+}
+
+#page_suivante {
+    display: inline-block;
+    border-style: solid;
+	border-color: rgb(180, 55, 151);
+	border-radius: 0.2em;
+	background-color: rgb(180, 55, 151);
+    padding: 0.1em 0.3em;
+    margin: 0.5em;
+    color: rgb(255, 255, 255);
+}
+#page_suivante:hover {
+    border-color: rgb(129, 33, 107);
+	background-color: rgb(129, 33, 107);
+    color: white;
+}
+.hide {  /*Cacher le bouton*/
+    visibility: hidden;
+}
+
+@media screen and (max-width: 845px) {  /*Affichage pour vue réduite & téléphones*/
+    #container {
+        width: 95vw;
+    }
+    .main {
+        width: 95vw;
+    }
 }
 
 /*-------------------- PANIER --------------------*/
@@ -162,7 +201,7 @@ h1 {
     font-weight: bold;
 }
 
-#add_panier {
+.add_panier {
     border-style: solid;
 	border-color: rgb(180, 55, 151);
 	border-radius: 0.2em;
@@ -171,7 +210,7 @@ h1 {
     margin: 0.5em;
     color: rgb(255, 255, 255);
 }
-#add_panier:hover {
+.add_panier:hover {
 	border-color: rgb(129, 33, 107);
 	background-color: rgb(129, 33, 107);
     color: white;
@@ -281,12 +320,12 @@ footer:after {
     background-color: rgb(73, 58, 38);
 }
 
-.dark-mode #add_panier {
+.dark-mode .add_panier {
 	border-color: rgb(255, 119, 0);
 	background-color: rgb(255, 119, 0);
     color: rgb(255, 255, 255);
 }
-.dark-mode #add_panier:hover {
+.dark-mode .add_panier:hover {
 	border-color: rgb(255, 165, 86);
 	background-color: rgb(255, 165, 86);
     color: white;

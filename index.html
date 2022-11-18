@@ -1,16 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html><html manifest="demo.appcache">
+<html lang="fr">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" type="text/css" href="/css/print.css" media="print">
   <link rel="stylesheet" href="src/css/general.css" />
-  <title>Document</title>
+  <meta charset="utf-8">
+  <title> Formations au numérique responsable</title>
+  <meta name="description" content="Site for Design4Green 2022 Challenge">
+  <meta name="keywords" content="HTML, CSS, JavaScript, Design4Green, Formations">
+  <meta name="author" content="team 42">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 </head>
 
-<script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
-<script src="src/js/highmaps.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.1.min.js" alt = "This script import a fast, small, and feature-rich JavaScript library called jquery"></script>
+<script src="src/js/highmaps.js" alt = "This script is used for the display of the map"></script>
 
 <body>
   <section>
@@ -20,6 +24,7 @@
       type="text"
       name="search"
       placeholder="Recherche..."
+      role="search"
     />
     <button id="sub_filtre" type="submit" onclick="searchAll()">Rechercher</button>    
     <div class="filtres">
@@ -94,8 +99,8 @@
   <section class="resultats">
     <div class="row">
       <div class="side">
-        <div id="container" class="side" style="height: 600px; max-width: 100%;">  </div>
-        <script type="text/javascript">
+        <div id="container" class="side" >  </div>
+        <script type="text/javascript" alt = "This script shows a map of France with the departments where there are training courses on the theme of digital responsibility">
           $(function () {
             var processed_json = new Array();
 
@@ -166,16 +171,17 @@
         </script>
         </div>
         <div class="main">
-          <ul id="data"></ul>
-          <button id="add_panier" type="submit">Ajouter au panier</button>
+          <ul id="data" role="list"></ul>
+          <button class="add_panier" type="submit">Ajouter au panier</button>
         </div>
+        <button type="button" id="page_suivante" class="ouioui" onclick="display5()">Page suivante</button>
       </div>
   </section>  
   <div id="panier">
     <h1>Panier</h1>
   </div>
 
-  <footer id="row">
+  <footer id="row" role="contentinfo">
     <p class="column">Design4Green 2022</p>
     <p class="column">Equipe 42</p>
     <p class="column">&#169 2022</p>
@@ -183,4 +189,4 @@
 </body>
 
 </html>
-<script src="src\js\import_2.js"></script>
+<script src="src\js\import_3.js" alt = "This script is used to search, filter and to display the differents formation available"></script>
